@@ -1,0 +1,35 @@
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <a href="#" class="navbar-brand">Home</a>
+            <a href="#" class="navbar-brand">Cart</a>
+        </nav>
+        <span style="font-weight:bold;font-size: 20px ">YOUR CARD</span>
+        <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quality</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor='let p of listproduct'>
+                <td>{{p.productID}}</td>
+                <td></td>
+                <td>{{p.productName}}</td>
+                <td>{{p.Price}}</td>
+                <td><button type="button" class="btn btn-primary">-</button>{{p.productQuality}}<button type="button" class="btn btn-primary">+</button></td>
+                <td></td>
+              </tr>
+              <tr>
+                  <td>Tong Tien</td>
+                  <td class="">{{TongTien()}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          
