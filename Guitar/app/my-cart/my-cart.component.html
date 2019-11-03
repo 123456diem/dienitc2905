@@ -1,0 +1,29 @@
+
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let m of myCart'>
+            <td scope="row">{{m.productname}}</td>
+            <td>${{m.yourPrice}}</td>
+            <td>{{m.quantity}}</td>
+            <td >${{m.total}}</td>
+          </tr>
+          <tr>
+            <td colspan="2"></td>
+            <td ><span><strong>SubTotal</strong></span></td>
+            <td><span >${{total}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+<div>
+  <span>Return to <a [routerLink]="['']">Home</a></span><br>
+  <span>Return to <a [routerLink]="['/products']">Guitar</a></span><br>
+  <span>Proceed to <a [routerLink]="['/checkout']">Checkout</a></span><br>
+</div>

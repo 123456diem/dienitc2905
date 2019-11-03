@@ -1,0 +1,74 @@
+<form class="col-sm-5">
+    <div class="form-group">
+        <label class="title">Your NumberCard</label>
+        <input type="text" class="form-control" [(ngModel)]="cardNumber" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+        <label class="title">Your Address</label>
+        <input type="text" class="form-control" [(ngModel)]="address" [ngModelOptions]="{standalone: true}">
+    </div>
+    <button type="submit" class="btn btn-sm btn-info" (click)='buttonShowOrder()'>Your Oder</button>
+
+</form>
+<form action="" *ngIf='showOrder'>
+    <div class="form-group">
+        <span class="title">Your Oder</span><br>
+        <span>Order Number: 4</span><br>
+        <span>Order Date: Oct 9,2019</span>
+    </div>
+    <div class="form-group">
+        <span class="title">Shipping</span><br>
+        <span>Ship Date: Not shipped yet</span><br>
+        <span>{{address}}</span>
+    </div>
+    <div class="form-group">
+        <span class="title">Billing</span><br>
+        <span>Card Number: {{cardNumber}}</span><br>
+        <span>{{address}}</span>
+    </div>
+    <div class="form-group">
+        <span class="title">Order items</span><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">List Price</th>
+                    <th scope="col">Savings</th>
+                    <th scope="col">Your Cost</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Line Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let m of myCart'>
+                    <td scope="row">{{m.productname}}</td>
+                    <td>{{m.price}}</td>
+                    <td>{{m.saving}}</td>
+                    <td>{{m.yourPrice}}</td>
+                    <td>{{m.quantity}}</td>
+                    <td>{{m.total}}</td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><span><strong>SubTotal</strong></span></td>
+                    <td><span>${{subTotal}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><span><strong>CA Tax</strong></span></td>
+                    <td><span>${{tax}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><span><strong>Shipping</strong></span></td>
+                    <td><span>${{ship}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><span><strong>Total</strong></span></td>
+                    <td><span>${{getTotal()}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

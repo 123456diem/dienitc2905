@@ -1,0 +1,28 @@
+<div class="title">{{products.productname}}</div>
+<div class="media">
+    <img src="/assets/images/guitar.jpg" alt="">
+    <div class="card" style="width: 50%">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span>List price:</span> {{products.price}} <span>$</span></li>
+            <li class="list-group-item"><span>Discount: </span>{{discount*100}}%</li>
+            <li class="list-group-item"><span>Your price: </span>{{getYourPrice()}} <span>$</span>(You save ${{getSave()}})</li>
+            <li class="list-group-item"><span>Quantity</span>
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input type="number" class="form-control" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)='addToCart()'>Buy</button>
+                </form>
+            </li>
+            <li class="list-group-item"><div class="title">Decription
+            </div>
+            {{products.description}}</li>
+            <li class="list-group-item">New feature:<br>
+                <ul *ngFor='let f of feature'>
+                    <li>{{f.text}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
